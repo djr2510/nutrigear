@@ -35,8 +35,8 @@ public class Documento {
     private LocalDateTime dataValidade;
 
     @ManyToOne
-    @JoinColumn(name = "acolhido_id")
-    private Acolhido acolhido;
+    @JoinColumn(name = "pessoa_id")
+    private PessoaModel pessoa;
 
     // ... outros atributos e métodos (data de validade, etc.)
 

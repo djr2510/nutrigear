@@ -1,6 +1,6 @@
 package br.com.cesrc.seusuas.controller.request;
 
-import br.com.cesrc.seusuas.model.Acolhido;
+import br.com.cesrc.seusuas.model.PessoaModel;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,14 +9,14 @@ import java.util.List;
 
 @Builder
 @Data
-public class AcolhidoRequest {
+public class PessoaRequest {
     private Long id;
     private String nome;
     private Date dataNascimento;
     private List<DocumentoRequest> documentos;
 
-    public Acolhido toModel(){
-        return Acolhido.builder()
+    public PessoaModel toModel(){
+        return PessoaModel.builder()
                 .id(id)
                 .nome(nome)
                 .dataNascimento(dataNascimento)

@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "acolhidos")
-public class Acolhido {
+@Table(name = "pessoas")
+public class PessoaModel {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

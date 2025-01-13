@@ -1,21 +1,20 @@
 package br.com.cesrc.seusuas.controller.response;
 
-import br.com.cesrc.seusuas.model.Acolhido;
+import br.com.cesrc.seusuas.model.PessoaModel;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 @Builder
-public class AcolhidoResponse {
+public class PessoaResponse {
     private Long id;
     private String nome;
     private Date dataNascimento;
 
-    public static AcolhidoResponse of(Acolhido acolhido){
-        return AcolhidoResponse.builder()
+    public static PessoaResponse of(PessoaModel acolhido){
+        return PessoaResponse.builder()
                 .id(acolhido.getId())
                 .nome(acolhido.getNome())
                 .dataNascimento(acolhido.getDataNascimento())
