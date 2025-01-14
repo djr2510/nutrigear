@@ -1,4 +1,4 @@
-package br.com.cesrc.seusuas.model;
+package br.com.cesrc.seusuas.model.pessoa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
@@ -38,6 +38,5 @@ public class Documento {
     @JoinColumn(name = "pessoa_id")
     private PessoaModel pessoa;
 
-    // ... outros atributos e métodos (data de validade, etc.)
 
 }

@@ -1,8 +1,8 @@
 package br.com.cesrc.seusuas.service;
 
-import br.com.cesrc.seusuas.model.PessoaModel;
+import br.com.cesrc.seusuas.model.pessoa.PessoaModel;
 import br.com.cesrc.seusuas.repository.PessoaRepository;
-import br.com.cesrc.seusuas.controller.request.PessoaRequest;
+import br.com.cesrc.seusuas.controller.pessoa.request.PessoaRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

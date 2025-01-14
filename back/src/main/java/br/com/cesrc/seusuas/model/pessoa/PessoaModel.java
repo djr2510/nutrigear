@@ -1,13 +1,11 @@
-package br.com.cesrc.seusuas.model;
+package br.com.cesrc.seusuas.model.pessoa;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter

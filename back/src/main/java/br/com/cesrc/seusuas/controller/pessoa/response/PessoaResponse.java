@@ -1,6 +1,6 @@
-package br.com.cesrc.seusuas.controller.response;
+package br.com.cesrc.seusuas.controller.pessoa.response;
 
-import br.com.cesrc.seusuas.model.PessoaModel;
+import br.com.cesrc.seusuas.model.pessoa.PessoaModel;
 import lombok.Builder;
 import lombok.Data;
 
