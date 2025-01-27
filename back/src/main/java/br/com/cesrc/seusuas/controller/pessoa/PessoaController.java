@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
-@RequestMapping(path="/pessoa")
+@RequestMapping(path="/pessoas")
 @RestController
 public class PessoaController {
     private PessoaService pessoaService;
@@ -40,6 +40,6 @@ public class PessoaController {
     public ResponseEntity<Void> salvarAcolhido(@RequestBody PessoaRequest pessoaRequest){
         PessoaModel pessoa = pessoaRequest.toModel();
         pessoaService.salvarAcolhido(pessoa);
-        return ResponseEntity.created(URI.create("/acolhido")).build();
+        return ResponseEntity.created(URI.create("/pessoas")).build();
     }
 }

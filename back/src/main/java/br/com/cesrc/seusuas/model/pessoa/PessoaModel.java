@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,6 +29,15 @@ public class PessoaModel {
         @Temporal(TemporalType.DATE)
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         private Date dataNascimento;
+
+
+        @Column(nullable = true)
+        private List<RestricoesAlimentar> restricoesAlimentarList;
+
+        @Column(nullable = true)
+        private List<OpcaoAlimentar> opcaoAlimentarList;
+
+
 /**
         @OneToMany(mappedBy = "acolhido", cascade = CascadeType.ALL)
         private List<Documento> documentos;
