@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping(path = "/alimento")
+@RequestMapping(path = "/alimentos")
 @RestController
 public class AlimentoController {
 

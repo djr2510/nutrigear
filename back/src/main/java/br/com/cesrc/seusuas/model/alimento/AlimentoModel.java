@@ -16,7 +16,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @Entity
-@Table(name = "alimento")
+@Table(name = "alimentos")
 public class AlimentoModel {
 
     @Id
