@@ -1,4 +1,6 @@
 package br.com.cesrc.seusuas.model.pessoa;
+import br.com.cesrc.seusuas.model.artigo.ArtigoModel;
+import br.com.cesrc.seusuas.model.comentario.ComentarioModel;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
@@ -30,23 +32,19 @@ public class PessoaModel {
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         private Date dataNascimento;
 
-
-        @Column(nullable = true)
+        @ElementCollection
+        @CollectionTable(name = "pessoa_restricoes", joinColumns = @JoinColumn(name = "pessoa_id"))
+        @Enumerated(EnumType.STRING)
         private List<RestricoesAlimentar> restricoesAlimentarList;
 
-        @Column(nullable = true)
+        @ElementCollection
+        @CollectionTable(name = "pessoa_opcoes", joinColumns = @JoinColumn(name = "pessoa_id"))
+        @Enumerated(EnumType.STRING)
         private List<OpcaoAlimentar> opcaoAlimentarList;
 
+        @OneToMany(mappedBy = "criador", cascade = CascadeType.ALL, orphanRemoval = true)
+        private List<ComentarioModel> comentarios;
 
-/**
-        @OneToMany(mappedBy = "acolhido", cascade = CascadeType.ALL)
-        private List<Documento> documentos;
-
-     @OneToMany(mappedBy = "acolhido", cascade = CascadeType.ALL)
-     private List<Atendimento> atendimentodocumentos;
-
-
-     */
-
-
+        @OneToMany(mappedBy = "criador", cascade = CascadeType.ALL, orphanRemoval = true)
+        private List<ArtigoModel> artigos;
     }
