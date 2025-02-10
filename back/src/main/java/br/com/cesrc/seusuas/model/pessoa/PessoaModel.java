@@ -28,9 +28,15 @@ public class PessoaModel {
         private String nome;
 
         @Column(nullable = false)
+        private String email;
+
+        @Column(nullable = false)
         @Temporal(TemporalType.DATE)
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         private Date dataNascimento;
+
+        @Column(nullable = false)
+        private String senha;
 
         @ElementCollection
         @CollectionTable(name = "pessoa_restricoes", joinColumns = @JoinColumn(name = "pessoa_id"))
