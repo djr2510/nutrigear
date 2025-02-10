@@ -24,7 +24,13 @@ public class ReceitaModel {
     private Long id;
 
     @Column(nullable = false)
+    private String titulo;
+
+    @Column(nullable = false)
     private String texto;
+
+    @Column
+    private String observacoes;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
