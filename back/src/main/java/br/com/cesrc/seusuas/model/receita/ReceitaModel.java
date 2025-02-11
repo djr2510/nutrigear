@@ -30,6 +30,9 @@ public class ReceitaModel {
     private String texto;
 
     @Column
+    private String descricao;
+
+    @Column
     private String observacoes;
 
     @Column(nullable = false)
@@ -38,5 +41,5 @@ public class ReceitaModel {
     private Date dataCriacao;
 
     @Column(nullable = true)
-    private List<String> imagens;
+    private String imagem;
 }

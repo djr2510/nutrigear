@@ -33,6 +33,9 @@ public class ArtigoModel {
     private String texto;
 
     @Column
+    private String descricao;
+
+    @Column
     private String observacoes;
 
     @Column(nullable = false)
@@ -41,5 +44,5 @@ public class ArtigoModel {
     private Date dataCriacao;
 
     @Column(nullable = true)
-    private List<String> imagens;
+    private String imagem;
 }
