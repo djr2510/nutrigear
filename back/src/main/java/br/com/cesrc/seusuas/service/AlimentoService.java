@@ -28,39 +28,112 @@ public class AlimentoService {
         return alimentoRepository.findAll();
     }
 
+    // Busca aproximada por nome
     public List<AlimentoModel> listarAlimentoPorNome(String nome) {
         return alimentoRepository.findByNomeContaining(nome);
     }
 
-    public List<AlimentoModel> listarAlimentosPorVitaminaADesc() {
-        return alimentoRepository.findAllOrderByVitaminaADesc();
+    // Busca aproximada por vitamina A
+    public List<AlimentoModel> listarAlimentosPorVitaminaA(Double quantidade) {
+        return alimentoRepository.findByVitaminaA(quantidade);
     }
 
-    public List<AlimentoModel> listarAlimentosPorVitaminaBDesc() {
-        return alimentoRepository.findAllOrderByVitaminaBDesc();
+    // Busca aproximada por vitamina B
+    public List<AlimentoModel> listarAlimentosPorVitaminaB(Double quantidade) {
+        return alimentoRepository.findByVitaminaB(quantidade);
     }
 
-    public List<AlimentoModel> listarAlimentosPorVitaminaCDesc() {
-        return alimentoRepository.findAllOrderByVitaminaCDesc();
+    // Busca aproximada por vitamina C
+    public List<AlimentoModel> listarAlimentosPorVitaminaC(Double quantidade) {
+        return alimentoRepository.findByVitaminaC(quantidade);
     }
 
-    public List<AlimentoModel> listarAlimentosPorVitaminaDDesc() {
-        return alimentoRepository.findAllOrderByVitaminaDDesc();
+    // Busca aproximada por vitamina D
+    public List<AlimentoModel> listarAlimentosPorVitaminaD(Double quantidade) {
+        return alimentoRepository.findByVitaminaD(quantidade);
     }
 
-    public List<AlimentoModel> listarAlimentosPorVitaminaEDesc() {
-        return alimentoRepository.findAllOrderByVitaminaEDesc();
+    // Busca aproximada por vitamina E
+    public List<AlimentoModel> listarAlimentosPorVitaminaE(Double quantidade) {
+        return alimentoRepository.findByVitaminaE(quantidade);
     }
 
-    public List<AlimentoModel> listarAlimentosPorVitaminaKDesc() {
-        return alimentoRepository.findAllOrderByVitaminaKDesc();
+    // Busca aproximada por vitamina K
+    public List<AlimentoModel> listarAlimentosPorVitaminaK(Double quantidade) {
+        return alimentoRepository.findByVitaminaK(quantidade);
     }
 
     public List<AlimentoModel> listarAlimentosPorTipo(TipoAlimento tipoAlimento) {
         return alimentoRepository.findByTipo(tipoAlimento);
     }
 
+    // Ordenação por proteína
     public List<AlimentoModel> listarAlimentosPorProteinasDesc() {
         return alimentoRepository.findAllOrderByProteinasDesc();
+    }
+
+    // Ordenação por vitamina A (descendente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaADesc() {
+        return alimentoRepository.findAllOrderByVitaminaADesc();
+    }
+
+    // Ordenação por vitamina B (descendente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaBDesc() {
+        return alimentoRepository.findAllOrderByVitaminaBDesc();
+    }
+
+    // Ordenação por vitamina C (descendente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaCDesc() {
+        return alimentoRepository.findAllOrderByVitaminaCDesc();
+    }
+
+    // Ordenação por vitamina D (descendente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaDDesc() {
+        return alimentoRepository.findAllOrderByVitaminaDDesc();
+    }
+
+    // Ordenação por vitamina E (descendente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaEDesc() {
+        return alimentoRepository.findAllOrderByVitaminaEDesc();
+    }
+
+    // Ordenação por vitamina K (descendente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaKDesc() {
+        return alimentoRepository.findAllOrderByVitaminaKDesc();
+    }
+
+    // Ordenação por proteína (crescente)
+    public List<AlimentoModel> listarAlimentosPorProteinasAsc() {
+        return alimentoRepository.findAllOrderByProteinasAsc();
+    }
+
+    // Ordenação por vitamina A (crescente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaAAsc() {
+        return alimentoRepository.findAllOrderByVitaminaAAsc();
+    }
+
+    // Ordenação por vitamina B (crescente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaBAsc() {
+        return alimentoRepository.findAllOrderByVitaminaBAsc();
+    }
+
+    // Ordenação por vitamina C (crescente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaCAsc() {
+        return alimentoRepository.findAllOrderByVitaminaCAsc();
+    }
+
+    // Ordenação por vitamina D (crescente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaDAsc() {
+        return alimentoRepository.findAllOrderByVitaminaDAsc();
+    }
+
+    // Ordenação por vitamina E (crescente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaEAsc() {
+        return alimentoRepository.findAllOrderByVitaminaEAsc();
+    }
+
+    // Ordenação por vitamina K (crescente)
+    public List<AlimentoModel> listarAlimentosPorVitaminaKAsc() {
+        return alimentoRepository.findAllOrderByVitaminaKAsc();
     }
 }
