@@ -1,6 +1,5 @@
 package br.com.cesrc.seusuas.repository;
 
-import br.com.cesrc.seusuas.model.alimento.AlimentoModel;
 import br.com.cesrc.seusuas.model.artigo.ArtigoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
