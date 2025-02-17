@@ -45,4 +45,6 @@ public class ArtigoModel {
 
     @Column(nullable = true)
     private String imagem;
+
+
 }
