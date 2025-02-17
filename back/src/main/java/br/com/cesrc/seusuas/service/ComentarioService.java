@@ -16,6 +16,7 @@ public class ComentarioService {
         return comentarioRepository.save(comentario);
     }
 
+
     public void deletarComentario(Long id) {
         comentarioRepository.deleteById(id);
     }
