@@ -46,5 +46,17 @@ public class ArtigoModel {
     @Column(nullable = true)
     private String imagem;
 
-
+    @Override
+    public String toString() {
+        return "ArtigoModel{" +
+                "id=" + id +
+                ", criador=" + criador.getNome() +
+                ", titulo='" + titulo + '\'' +
+                ", texto='" + texto + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", observacoes='" + observacoes + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                 imagem + '\'' +
+                '}';
+    }
 }
