@@ -42,4 +42,9 @@ public class ReceitaModel {
 
     @Column(nullable = true)
     private String imagem;
+
+    /**
+     * TODO
+     * Deixar Like no artigo e numeros de like
+     */
 }

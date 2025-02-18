@@ -33,4 +33,13 @@ public class ComentarioModel {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dataCriacao;
 
+    /**
+     * TODO
+     *  Likes no Comentarios, quantos tem e dar likes
+     */
+
+    /**
+     * TODO
+     *  Responder o Comentario com uma outra classe
+     */
 }
