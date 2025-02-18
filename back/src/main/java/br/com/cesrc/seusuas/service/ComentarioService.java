@@ -1,4 +1,5 @@
 package br.com.cesrc.seusuas.service;
+
 import br.com.cesrc.seusuas.model.comentario.ComentarioModel;
 import br.com.cesrc.seusuas.repository.ComentarioRepository;
 
@@ -15,7 +16,6 @@ public class ComentarioService {
     public ComentarioModel salvarComentario(ComentarioModel comentario) {
         return comentarioRepository.save(comentario);
     }
-
 
     public void deletarComentario(Long id) {
         comentarioRepository.deleteById(id);
