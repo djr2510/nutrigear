@@ -26,7 +26,7 @@ public class AlimentoResponse {
     private int proteinas;
     private int gorduraTotais;
     private int gorduraTrans;
-    private int gotduraSaturada;
+    private int gorduraSaturada;
     private int fibra;
     private int sodio;
     private int vitaminaA;
@@ -49,7 +49,7 @@ public class AlimentoResponse {
             .proteinas(alimentoModel.getProteinas())
             .gorduraTotais(alimentoModel.getGorduraTotais())
             .gorduraTrans(alimentoModel.getGorduraTrans())
-            .gotduraSaturada(alimentoModel.getGotduraSaturada())
+            .gorduraSaturada(alimentoModel.getGorduraSaturada())
             .fibra(alimentoModel.getFibra())
             .sodio(alimentoModel.getSodio())
             .vitaminaA(alimentoModel.getVitaminaA())

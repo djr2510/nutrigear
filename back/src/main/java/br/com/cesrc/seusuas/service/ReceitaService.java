@@ -16,19 +16,15 @@ public class ReceitaService {
     public ReceitaModel salvarReceita(ReceitaModel receita) {
         return receitaRepository.save(receita);
     }
-
     public List<ReceitaModel> buscarPorTitulo(String titulo) {
         return receitaRepository.findByNomeContaining(titulo);
     }
-
     public List<ReceitaModel> buscarTodasOrdenadasPorDataAsc() {
         return receitaRepository.findAllOrderBydataCriacaoAsc();
     }
-
     public List<ReceitaModel>  buscarTodasOrdenadasPorDataDesc(){
         return receitaRepository.findAllOrderBydataCriacaoDesc();
     }
-
     public Optional<ReceitaModel> buscarPorId(Long id) {
         return receitaRepository.findById(id);
     }

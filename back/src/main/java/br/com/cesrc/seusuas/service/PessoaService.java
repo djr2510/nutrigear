@@ -22,9 +22,9 @@ public class PessoaService {
         return pessoaRepository.findAll();
     }
     public void editarAcolhido(Long id, PessoaRequest pessoaRequest){
-        PessoaModel acolhidoExistente = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException(id +" não existe"));
-        acolhidoExistente.setNome(pessoaRequest.getNome());
-        acolhidoExistente.setDataNascimento(pessoaRequest.getDataNascimento());
-        pessoaRepository.save(acolhidoExistente);
+        PessoaModel PessoaExistente = pessoaRepository.findById(id).orElseThrow(() -> new RuntimeException(id +" não existe"));
+        PessoaExistente.setNome(pessoaRequest.getNome());
+        PessoaExistente.setDataNascimento(pessoaRequest.getDataNascimento());
+        pessoaRepository.save(PessoaExistente);
     }
 }

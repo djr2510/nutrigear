@@ -136,4 +136,54 @@ public class AlimentoService {
     public List<AlimentoModel> listarAlimentosPorVitaminaKAsc() {
         return alimentoRepository.findAllOrderByVitaminaKAsc();
     }
+    //Test
+    public List<AlimentoModel> buscarAlimentosComVariacao(
+    String nome,
+    TipoAlimento tipoAlimento,
+    Integer gramaMin,
+    Integer gramaMax,
+    Integer valorEnergeticoMin,
+    Integer valorEnergeticoMax,
+    Integer carboidratosMin,
+    Integer carboidratosMax,
+    Integer acucaresTotaisMin,
+    Integer acucaresTotaisMax,
+    Integer acucaresAdicionaisMin,
+    Integer acucaresAdicionaisMax,
+    Integer proteinasMin,
+    Integer proteinasMax,
+    Integer gorduraTotaisMin,
+    Integer gorduraTotaisMax,
+    Integer gorduraTransMin,
+    Integer gorduraTransMax,
+    Integer gorduraSaturadaMin,
+    Integer gorduraSaturadaMax,
+    Integer fibraMin,
+    Integer fibraMax,
+    Integer sodioMin,
+    Integer sodioMax,
+    Integer vitaminaAMin,
+    Integer vitaminaAMax,
+    Integer vitaminaBMin,
+    Integer vitaminaBMax,
+    Integer vitaminaCMin,
+    Integer vitaminaCMax,
+    Integer vitaminaDMin,
+    Integer vitaminaDMax,
+    Integer vitaminaEMin,
+    Integer vitaminaEMax,
+    Integer vitaminaKMin,
+    Integer vitaminaKMax) {
+
+        return alimentoRepository.findByAllFieldsWithVariation(
+                nome, tipoAlimento, gramaMin, gramaMax, valorEnergeticoMin, valorEnergeticoMax,
+                carboidratosMin, carboidratosMax, acucaresTotaisMin, acucaresTotaisMax,
+                acucaresAdicionaisMin, acucaresAdicionaisMax, proteinasMin, proteinasMax,
+                gorduraTotaisMin, gorduraTotaisMax, gorduraTransMin, gorduraTransMax,
+                gorduraSaturadaMin, gorduraSaturadaMax, fibraMin, fibraMax,
+                sodioMin, sodioMax, vitaminaAMin, vitaminaAMax, vitaminaBMin, vitaminaBMax,
+                vitaminaCMin, vitaminaCMax, vitaminaDMin, vitaminaDMax,
+                vitaminaEMin, vitaminaEMax, vitaminaKMin, vitaminaKMax
+        );
+    }
 }

@@ -47,7 +47,7 @@ public class AlimentoModel {
     @Column(nullable = false, length = 100)
     private int gorduraTrans;
     @Column(nullable = false, length = 100)
-    private int gotduraSaturada;
+    private int gorduraSaturada;
     @Column(nullable = false, length = 100)
     private int fibra;
     @Column(nullable = false, length = 100)
@@ -78,7 +78,7 @@ public class AlimentoModel {
         this.proteinas = proteinas;
         this.gorduraTotais = gorduraTotais;
         this.gorduraTrans = gorduraTrans;
-        this.gotduraSaturada = gotduraSaturada;
+        this.gorduraSaturada = gotduraSaturada;
         this.fibra = fibra;
         this.sodio = sodio;
         this.vitaminaA = vitaminaA;

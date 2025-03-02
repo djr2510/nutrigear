@@ -23,7 +23,7 @@ public class AlimentoRequest {
     private int proteinas;
     private int gorduraTotais;
     private int gorduraTrans;
-    private int gotduraSaturada;
+    private int gorduraSaturada;
     private int fibra;
     private int sodio;
     private int vitaminaA;
@@ -45,7 +45,7 @@ public class AlimentoRequest {
         .proteinas(proteinas)
         .gorduraTotais(gorduraTotais)
         .gorduraTrans(gorduraTrans)
-        .gotduraSaturada(gotduraSaturada)
+        .gorduraSaturada(gorduraSaturada)
         .fibra(fibra)
         .sodio(sodio)
         .vitaminaA(vitaminaA)

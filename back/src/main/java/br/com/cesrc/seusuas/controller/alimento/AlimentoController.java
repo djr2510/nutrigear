@@ -250,4 +250,63 @@ public class AlimentoController {
                 .toList();
         return ResponseEntity.ok(responseList);
     }
+
+    //Test
+    @GetMapping("/buscar-com-variacao")
+    public ResponseEntity<List<AlimentoResponse>> buscarAlimentosComVariacao(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) TipoAlimento tipoAlimento,
+            @RequestParam(required = false) Integer gramaMin,
+            @RequestParam(required = false) Integer gramaMax,
+            @RequestParam(required = false) Integer valorEnergeticoMin,
+            @RequestParam(required = false) Integer valorEnergeticoMax,
+            @RequestParam(required = false) Integer carboidratosMin,
+            @RequestParam(required = false) Integer carboidratosMax,
+            @RequestParam(required = false) Integer acucaresTotaisMin,
+            @RequestParam(required = false) Integer acucaresTotaisMax,
+            @RequestParam(required = false) Integer acucaresAdicionaisMin,
+            @RequestParam(required = false) Integer acucaresAdicionaisMax,
+            @RequestParam(required = false) Integer proteinasMin,
+            @RequestParam(required = false) Integer proteinasMax,
+            @RequestParam(required = false) Integer gorduraTotaisMin,
+            @RequestParam(required = false) Integer gorduraTotaisMax,
+            @RequestParam(required = false) Integer gorduraTransMin,
+            @RequestParam(required = false) Integer gorduraTransMax,
+            @RequestParam(required = false) Integer gorduraSaturadaMin,
+            @RequestParam(required = false) Integer gorduraSaturadaMax,
+            @RequestParam(required = false) Integer fibraMin,
+            @RequestParam(required = false) Integer fibraMax,
+            @RequestParam(required = false) Integer sodioMin,
+            @RequestParam(required = false) Integer sodioMax,
+            @RequestParam(required = false) Integer vitaminaAMin,
+            @RequestParam(required = false) Integer vitaminaAMax,
+            @RequestParam(required = false) Integer vitaminaBMin,
+            @RequestParam(required = false) Integer vitaminaBMax,
+            @RequestParam(required = false) Integer vitaminaCMin,
+            @RequestParam(required = false) Integer vitaminaCMax,
+            @RequestParam(required = false) Integer vitaminaDMin,
+            @RequestParam(required = false) Integer vitaminaDMax,
+            @RequestParam(required = false) Integer vitaminaEMin,
+            @RequestParam(required = false) Integer vitaminaEMax,
+            @RequestParam(required = false) Integer vitaminaKMin,
+            @RequestParam(required = false) Integer vitaminaKMax) {
+
+        List<AlimentoModel> alimentos = alimentoRepository.findByAllFieldsWithVariation(
+                nome, tipoAlimento, gramaMin, gramaMax, valorEnergeticoMin, valorEnergeticoMax,
+                carboidratosMin, carboidratosMax, acucaresTotaisMin, acucaresTotaisMax,
+                acucaresAdicionaisMin, acucaresAdicionaisMax, proteinasMin, proteinasMax,
+                gorduraTotaisMin, gorduraTotaisMax, gorduraTransMin, gorduraTransMax,
+                gorduraSaturadaMin, gorduraSaturadaMax, fibraMin, fibraMax,
+                sodioMin, sodioMax, vitaminaAMin, vitaminaAMax, vitaminaBMin, vitaminaBMax,
+                vitaminaCMin, vitaminaCMax, vitaminaDMin, vitaminaDMax,
+                vitaminaEMin, vitaminaEMax, vitaminaKMin, vitaminaKMax
+        );
+
+        List<AlimentoResponse> responseList = alimentos.stream()
+                .map(AlimentoResponse::of)
+                .toList();
+
+        return ResponseEntity.ok(responseList);
+    }
+
 }
