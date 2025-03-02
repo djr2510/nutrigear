@@ -38,9 +38,9 @@ public class PessoaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Void> salvarAcolhido(@RequestBody PessoaRequest pessoaRequest){
+    public ResponseEntity<Void> salvarPessoa(@RequestBody PessoaRequest pessoaRequest){
         PessoaModel pessoa = pessoaRequest.toModel();
-        pessoaService.salvarAcolhido(pessoa);
+        pessoaService.salvarPessoa(pessoa);
         return ResponseEntity.created(URI.create("/pessoas")).build();
     }
 }

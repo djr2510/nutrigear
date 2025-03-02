@@ -12,7 +12,7 @@ public class PessoaService {
     public PessoaService(PessoaRepository pessoaRepository){
         this.pessoaRepository = pessoaRepository;
     }
-    public PessoaModel salvarAcolhido (PessoaModel pessoa){
+    public PessoaModel salvarPessoa (PessoaModel pessoa){
         return pessoaRepository.save(pessoa);
     }
     public void deletarAcolhido (Long id){
