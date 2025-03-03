@@ -1,10 +1,12 @@
 package br.com.cesrc.seusuas.model.pessoa;
+
 import br.com.cesrc.seusuas.model.artigo.ArtigoModel;
 import br.com.cesrc.seusuas.model.comentario.ComentarioModel;
+import br.com.cesrc.seusuas.model.tags.OpcaoAlimentar;
+import br.com.cesrc.seusuas.model.tags.RestricoesAlimentar;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.*;
 
 import java.util.Date;
@@ -17,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "pessoas")
+@Table(name = "pessoas", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class PessoaModel {
 
         @Id
@@ -27,7 +29,7 @@ public class PessoaModel {
         @Column(nullable = false, length = 100)
         private String nome;
 
-        @Column(nullable = false)
+        @Column(nullable = false, unique = true, length = 100)
         private String email;
 
         @Column(nullable = false)
@@ -35,7 +37,7 @@ public class PessoaModel {
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         private Date dataNascimento;
 
-        @Column(nullable = false)
+        @Column(nullable = false, length = 255)
         private String senha;
 
         @ElementCollection
@@ -49,8 +51,10 @@ public class PessoaModel {
         private List<OpcaoAlimentar> opcaoAlimentarList;
 
         @OneToMany(mappedBy = "criador", cascade = CascadeType.ALL, orphanRemoval = true)
+        @JsonIgnore
         private List<ComentarioModel> comentarios;
 
         @OneToMany(mappedBy = "criador", cascade = CascadeType.ALL, orphanRemoval = true)
+        @JsonIgnore
         private List<ArtigoModel> artigos;
-    }
+}

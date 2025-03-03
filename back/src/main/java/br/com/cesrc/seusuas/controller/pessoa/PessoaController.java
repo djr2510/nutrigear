@@ -26,13 +26,16 @@ public class PessoaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPessoa(@PathVariable Long id) {
-       // try {
+        try {
             pessoaService.deletarPessoa(id);
             return ResponseEntity.noContent().build();
-       // } catch (Exeção para ser implementada e) {
-        //    return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // Retorna 404 se a pessoa não for encontrada
-       // }
+        } catch (Exception e) {
+            // TODO: Implementar exceção específica para pessoa não encontrada
+            // Criar uma exceção personalizada (ex: PessoaNaoEncontradaException) para retornar um status 404
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
+
 
 
     @GetMapping

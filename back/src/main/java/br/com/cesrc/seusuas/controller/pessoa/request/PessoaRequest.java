@@ -2,9 +2,9 @@ package br.com.cesrc.seusuas.controller.pessoa.request;
 
 import br.com.cesrc.seusuas.model.artigo.ArtigoModel;
 import br.com.cesrc.seusuas.model.comentario.ComentarioModel;
-import br.com.cesrc.seusuas.model.pessoa.OpcaoAlimentar;
+import br.com.cesrc.seusuas.model.tags.OpcaoAlimentar;
 import br.com.cesrc.seusuas.model.pessoa.PessoaModel;
-import br.com.cesrc.seusuas.model.pessoa.RestricoesAlimentar;
+import br.com.cesrc.seusuas.model.tags.RestricoesAlimentar;
 import lombok.Builder;
 import lombok.Data;
 

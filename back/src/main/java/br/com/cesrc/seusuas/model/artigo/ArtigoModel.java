@@ -46,8 +46,10 @@ public class ArtigoModel {
     private String imagem;
 
     /**
-     * TODO
-     * Deixar Like no artigo e numeros de like
+     * TODO: Implementar sistema de curtidas.
+     * - Criar uma entidade `LikeModel` com relacionamento `@ManyToOne` para `ArtigoModel` e `PessoaModel`.
+     * - Criar um campo `@OneToMany` para armazenar os likes.
+     * - Criar métodos para adicionar/remover likes.
      */
 
     @Override

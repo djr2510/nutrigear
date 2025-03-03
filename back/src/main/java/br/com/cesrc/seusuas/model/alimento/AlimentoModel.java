@@ -65,7 +65,7 @@ public class AlimentoModel {
     @Column(nullable = false, length = 100)
     private int vitaminaK;
 
-    public AlimentoModel(Long id, TipoAlimento tipo, String nome, int grama, int valorEnergetico, int carboidratos, int acucaresTotais, int acucaresAdicionais, int proteinas, int gorduraTotais, int gorduraTrans, int gotduraSaturada, int fibra, int sodio, int vitaminaA, int getVitaminaB, int getVitaminaC, int getVitaminaD, int getVitaminaE, int getVitaminaK) {
+    public AlimentoModel(Long id, TipoAlimento tipo, String nome, int grama, int valorEnergetico, int carboidratos, int acucaresTotais, int acucaresAdicionais, int proteinas, int gorduraTotais, int gorduraTrans, int gorduraSaturada, int fibra, int sodio, int vitaminaA, int getVitaminaB, int getVitaminaC, int getVitaminaD, int getVitaminaE, int getVitaminaK) {
 
         this.id = id;
         this.tipo = tipo;
@@ -78,7 +78,7 @@ public class AlimentoModel {
         this.proteinas = proteinas;
         this.gorduraTotais = gorduraTotais;
         this.gorduraTrans = gorduraTrans;
-        this.gorduraSaturada = gotduraSaturada;
+        this.gorduraSaturada = gorduraSaturada;
         this.fibra = fibra;
         this.sodio = sodio;
         this.vitaminaA = vitaminaA;

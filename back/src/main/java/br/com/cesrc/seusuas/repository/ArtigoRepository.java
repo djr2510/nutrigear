@@ -10,15 +10,16 @@ import java.util.List;
 
 @Repository
 public interface ArtigoRepository extends JpaRepository<ArtigoModel, Long> {
-    //Procurar por titulo
+
+    // Procurar por título (com busca parcial)
     @Query("SELECT a FROM ArtigoModel a WHERE a.titulo LIKE %:titulo%")
-    List<ArtigoModel> findByNomeContaining(@Param("titulo") String titulo);
+    List<ArtigoModel> findByTituloContaining(@Param("titulo") String titulo);
 
-    //Procurar por data criação Asc
+    // Procurar por data criação Ascendente
     @Query("SELECT a FROM ArtigoModel a ORDER BY a.dataCriacao ASC")
-    List<ArtigoModel> findAllOrderBydataCriacaoAsc();
+    List<ArtigoModel> findAllOrderByDataCriacaoAsc();
 
-    //Procurar por data criação Desc
+    // Procurar por data criação Descendente
     @Query("SELECT a FROM ArtigoModel a ORDER BY a.dataCriacao DESC")
-    List<ArtigoModel> findAllOrderBydataCriacaoDesc();
+    List<ArtigoModel> findAllOrderByDataCriacaoDesc();
 }
