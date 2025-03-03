@@ -24,6 +24,16 @@ public class PessoaController {
         this.pessoaRepository = pessoaRepository;
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarPessoa(@PathVariable Long id) {
+       // try {
+            pessoaService.deletarPessoa(id);
+            return ResponseEntity.noContent().build();
+       // } catch (Exeção para ser implementada e) {
+        //    return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // Retorna 404 se a pessoa não for encontrada
+       // }
+    }
+
 
     @GetMapping
     public ResponseEntity<List<PessoaResponse>> listarPessoas(@RequestParam(required = false)Long id){
@@ -43,5 +53,4 @@ public class PessoaController {
         return ResponseEntity.created(URI.create("/pessoas")).build();
     }
 }
-//teste
 
