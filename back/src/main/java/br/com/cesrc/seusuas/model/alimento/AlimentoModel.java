@@ -1,15 +1,14 @@
 package br.com.cesrc.seusuas.model.alimento;
 
-import br.com.cesrc.seusuas.model.pessoa.TipoDocumento;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import java.util.Date;
 
+/**
+ * Modelo que representa um alimento.
+ *
+ * Esta classe define a estrutura de um alimento, incluindo seu tipo, nome,
+ * informações nutricionais e vitaminas.
+ */
 @Getter
 @Setter
 @ToString
@@ -19,54 +18,153 @@ import java.util.Date;
 @Table(name = "alimentos")
 public class AlimentoModel {
 
+    /**
+     * Identificador único do alimento.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Tipo do alimento (ex: fruta, legume, etc.).
+     */
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TipoAlimento tipo;
 
+    /**
+     * Nome do alimento.
+     */
     @Column(nullable = false, length = 100)
     private String nome;
 
+    /**
+     * Quantidade em gramas do alimento.
+     */
     @Column(nullable = false, length = 100)
     private int grama;
+
+    /**
+     * Valor energético do alimento.
+     */
     @Column(nullable = false, length = 100)
     private int valorEnergetico;
+
+    /**
+     * Quantidade de carboidratos no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int carboidratos;
+
+    /**
+     * Quantidade de açúcares totais no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int acucaresTotais;
+
+    /**
+     * Quantidade de açúcares adicionais no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int acucaresAdicionais;
+
+    /**
+     * Quantidade de proteínas no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int proteinas;
+
+    /**
+     * Quantidade de gorduras totais no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int gorduraTotais;
+
+    /**
+     * Quantidade de gordura trans no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int gorduraTrans;
+
+    /**
+     * Quantidade de gordura saturada no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int gorduraSaturada;
+
+    /**
+     * Quantidade de fibras no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int fibra;
+
+    /**
+     * Quantidade de sódio no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int sodio;
+
+    /**
+     * Quantidade de vitamina A no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int vitaminaA;
+
+    /**
+     * Quantidade de vitamina B no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int vitaminaB;
+
+    /**
+     * Quantidade de vitamina C no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int vitaminaC;
+
+    /**
+     * Quantidade de vitamina D no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int vitaminaD;
+
+    /**
+     * Quantidade de vitamina E no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int vitaminaE;
+
+    /**
+     * Quantidade de vitamina K no alimento.
+     */
     @Column(nullable = false, length = 100)
     private int vitaminaK;
 
-    public AlimentoModel(Long id, TipoAlimento tipo, String nome, int grama, int valorEnergetico, int carboidratos, int acucaresTotais, int acucaresAdicionais, int proteinas, int gorduraTotais, int gorduraTrans, int gorduraSaturada, int fibra, int sodio, int vitaminaA, int getVitaminaB, int getVitaminaC, int getVitaminaD, int getVitaminaE, int getVitaminaK) {
-
+    /**
+     * Construtor com todos os campos.
+     *
+     * @param id Identificador único do alimento.
+     * @param tipo Tipo do alimento.
+     * @param nome Nome do alimento.
+     * @param grama Quantidade em gramas.
+     * @param valorEnergetico Valor energético.
+     * @param carboidratos Quantidade de carboidratos.
+     * @param acucaresTotais Quantidade de açúcares totais.
+     * @param acucaresAdicionais Quantidade de açúcares adicionais.
+     * @param proteinas Quantidade de proteínas.
+     * @param gorduraTotais Quantidade de gorduras totais.
+     * @param gorduraTrans Quantidade de gordura trans.
+     * @param gorduraSaturada Quantidade de gordura saturada.
+     * @param fibra Quantidade de fibras.
+     * @param sodio Quantidade de sódio.
+     * @param vitaminaA Quantidade de vitamina A.
+     * @param vitaminaB Quantidade de vitamina B.
+     * @param vitaminaC Quantidade de vitamina C.
+     * @param vitaminaD Quantidade de vitamina D.
+     * @param vitaminaE Quantidade de vitamina E.
+     * @param vitaminaK Quantidade de vitamina K.
+     */
+    public AlimentoModel(Long id, TipoAlimento tipo, String nome, int grama, int valorEnergetico, int carboidratos, int acucaresTotais, int acucaresAdicionais, int proteinas, int gorduraTotais, int gorduraTrans, int gorduraSaturada, int fibra, int sodio, int vitaminaA, int vitaminaB, int vitaminaC, int vitaminaD, int vitaminaE, int vitaminaK) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
@@ -82,12 +180,10 @@ public class AlimentoModel {
         this.fibra = fibra;
         this.sodio = sodio;
         this.vitaminaA = vitaminaA;
-        this.vitaminaB = getVitaminaB;
-        this.vitaminaC = getVitaminaC;
-        this.vitaminaD = getVitaminaD;
-        this.vitaminaE = getVitaminaE;
-        this.vitaminaK = getVitaminaK;
+        this.vitaminaB = vitaminaB;
+        this.vitaminaC = vitaminaC;
+        this.vitaminaD = vitaminaD;
+        this.vitaminaE = vitaminaE;
+        this.vitaminaK = vitaminaK;
     }
-
-
 }

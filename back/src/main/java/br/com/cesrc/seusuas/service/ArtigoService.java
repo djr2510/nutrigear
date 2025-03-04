@@ -6,41 +6,77 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Serviço responsável por fornecer operações de negócio relacionadas a artigos.
+ * Este serviço atua como uma camada intermediária entre o controlador e o repositório,
+ * encapsulando a lógica de negócios e fornecendo métodos para manipulação de dados de artigos.
+ */
 @Service
 public class ArtigoService {
 
     private final ArtigoRepository artigoRepository;
 
+    /**
+     * Construtor da classe ArtigoService.
+     *
+     * @param artigoRepository Repositório de artigos injetado via Spring Dependency Injection.
+     */
     public ArtigoService(ArtigoRepository artigoRepository) {
         this.artigoRepository = artigoRepository;
     }
 
-    // Salvar Artigo
+    /**
+     * Salva um novo artigo ou atualiza um artigo existente.
+     *
+     * @param artigo Modelo do artigo a ser salvo ou atualizado.
+     * @return O artigo salvo ou atualizado.
+     */
     public ArtigoModel salvarArtigo(ArtigoModel artigo) {
         return artigoRepository.save(artigo);
     }
 
-    // Deletar Artigo
+    /**
+     * Deleta um artigo pelo ID.
+     *
+     * @param id ID do artigo a ser deletado.
+     */
     public void deletarArtigo(Long id) {
         artigoRepository.deleteById(id);
     }
 
-    // Procurar Artigos Por Título
+    /**
+     * Busca artigos por título, contendo a string fornecida.
+     *
+     * @param titulo String a ser buscada no título do artigo.
+     * @return Lista de artigos que contêm a string fornecida no título.
+     */
     public List<ArtigoModel> procurarPorTitulo(String titulo) {
         return artigoRepository.findByTituloContaining(titulo);
     }
 
-    // Listar Todos os Artigos
+    /**
+     * Lista todos os artigos.
+     *
+     * @return Lista de todos os artigos.
+     */
     public List<ArtigoModel> listarArtigos() {
         return artigoRepository.findAll();
     }
 
-    // Listar Artigos por Data de Criação Descendente
+    /**
+     * Lista todos os artigos ordenados por data de criação descendente.
+     *
+     * @return Lista de artigos ordenados por data de criação descendente.
+     */
     public List<ArtigoModel> listarArtigosPorDataCriacaoDesc() {
         return artigoRepository.findAllOrderByDataCriacaoDesc();
     }
 
-    // Listar Artigos por Data de Criação Ascendente
+    /**
+     * Lista todos os artigos ordenados por data de criação ascendente.
+     *
+     * @return Lista de artigos ordenados por data de criação ascendente.
+     */
     public List<ArtigoModel> listarArtigosPorDataCriacaoAsc() {
         return artigoRepository.findAllOrderByDataCriacaoAsc();
     }

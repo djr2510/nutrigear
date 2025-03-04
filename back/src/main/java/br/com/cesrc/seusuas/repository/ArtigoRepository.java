@@ -8,18 +8,35 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repositório JPA para a entidade ArtigoModel.
+ * Fornece métodos para realizar operações de persistência e consulta no banco de dados para artigos.
+ */
 @Repository
 public interface ArtigoRepository extends JpaRepository<ArtigoModel, Long> {
 
-    // Procurar por título (com busca parcial)
+    /**
+     * Busca artigos por título, contendo a string fornecida.
+     *
+     * @param titulo String a ser buscada no título do artigo.
+     * @return Lista de artigos que contêm a string fornecida no título.
+     */
     @Query("SELECT a FROM ArtigoModel a WHERE a.titulo LIKE %:titulo%")
     List<ArtigoModel> findByTituloContaining(@Param("titulo") String titulo);
 
-    // Procurar por data criação Ascendente
+    /**
+     * Busca todos os artigos ordenados por data de criação ascendente.
+     *
+     * @return Lista de artigos ordenados por data de criação ascendente.
+     */
     @Query("SELECT a FROM ArtigoModel a ORDER BY a.dataCriacao ASC")
     List<ArtigoModel> findAllOrderByDataCriacaoAsc();
 
-    // Procurar por data criação Descendente
+    /**
+     * Busca todos os artigos ordenados por data de criação descendente.
+     *
+     * @return Lista de artigos ordenados por data de criação descendente.
+     */
     @Query("SELECT a FROM ArtigoModel a ORDER BY a.dataCriacao DESC")
     List<ArtigoModel> findAllOrderByDataCriacaoDesc();
 }

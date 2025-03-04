@@ -9,121 +9,187 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repositório JPA para a entidade AlimentoModel.
+ * Fornece métodos para realizar operações de persistência e consulta no banco de dados para alimentos.
+ */
 @Repository
 public interface AlimentoRepository extends JpaRepository<AlimentoModel, Long> {
 
+    /**
+     * Busca alimentos por nome, contendo a string fornecida.
+     *
+     * @param nome String a ser buscada no nome do alimento.
+     * @return Lista de alimentos que contêm a string fornecida no nome.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.nome LIKE %:nome%")
     List<AlimentoModel> findByNomeContaining(@Param("nome") String nome);
+
+    /**
+     * Busca alimentos por tipo.
+     *
+     * @param tipoAlimento Tipo de alimento a ser buscado.
+     * @return Lista de alimentos do tipo fornecido.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.tipo = :tipo")
     List<AlimentoModel> findByTipo(@Param("tipo") TipoAlimento tipoAlimento);
 
-    // Busca aproximada por vitaminas (considerando uma variação de 10%)
+    /**
+     * Busca alimentos por quantidade aproximada de vitamina A (variação de 10%).
+     *
+     * @param quantidade Quantidade de vitamina A a ser buscada.
+     * @return Lista de alimentos com quantidade aproximada de vitamina A.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.vitaminaA BETWEEN :quantidade * 0.9 AND :quantidade * 1.1")
     List<AlimentoModel> findByVitaminaA(@Param("quantidade") Double quantidade);
+
+    /**
+     * Busca alimentos por quantidade aproximada de vitamina B (variação de 10%).
+     *
+     * @param quantidade Quantidade de vitamina B a ser buscada.
+     * @return Lista de alimentos com quantidade aproximada de vitamina B.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.vitaminaB BETWEEN :quantidade * 0.9 AND :quantidade * 1.1")
     List<AlimentoModel> findByVitaminaB(@Param("quantidade") Double quantidade);
+
+    /**
+     * Busca alimentos por quantidade aproximada de vitamina C (variação de 10%).
+     *
+     * @param quantidade Quantidade de vitamina C a ser buscada.
+     * @return Lista de alimentos com quantidade aproximada de vitamina C.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.vitaminaC BETWEEN :quantidade * 0.9 AND :quantidade * 1.1")
     List<AlimentoModel> findByVitaminaC(@Param("quantidade") Double quantidade);
+
+    /**
+     * Busca alimentos por quantidade aproximada de vitamina D (variação de 10%).
+     *
+     * @param quantidade Quantidade de vitamina D a ser buscada.
+     * @return Lista de alimentos com quantidade aproximada de vitamina D.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.vitaminaD BETWEEN :quantidade * 0.9 AND :quantidade * 1.1")
     List<AlimentoModel> findByVitaminaD(@Param("quantidade") Double quantidade);
+
+    /**
+     * Busca alimentos por quantidade aproximada de vitamina E (variação de 10%).
+     *
+     * @param quantidade Quantidade de vitamina E a ser buscada.
+     * @return Lista de alimentos com quantidade aproximada de vitamina E.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.vitaminaE BETWEEN :quantidade * 0.9 AND :quantidade * 1.1")
     List<AlimentoModel> findByVitaminaE(@Param("quantidade") Double quantidade);
+
+    /**
+     * Busca alimentos por quantidade aproximada de vitamina K (variação de 10%).
+     *
+     * @param quantidade Quantidade de vitamina K a ser buscada.
+     * @return Lista de alimentos com quantidade aproximada de vitamina K.
+     */
     @Query("SELECT a FROM AlimentoModel a WHERE a.vitaminaK BETWEEN :quantidade * 0.9 AND :quantidade * 1.1")
     List<AlimentoModel> findByVitaminaK(@Param("quantidade") Double quantidade);
 
-    // Ordenação crescente das vitaminas
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina A crescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina A crescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaA ASC")
     List<AlimentoModel> findAllOrderByVitaminaAAsc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina B crescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina B crescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaB ASC")
     List<AlimentoModel> findAllOrderByVitaminaBAsc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina C crescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina C crescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaC ASC")
     List<AlimentoModel> findAllOrderByVitaminaCAsc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina D crescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina D crescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaD ASC")
     List<AlimentoModel> findAllOrderByVitaminaDAsc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina E crescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina E crescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaE ASC")
     List<AlimentoModel> findAllOrderByVitaminaEAsc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina K crescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina K crescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaK ASC")
     List<AlimentoModel> findAllOrderByVitaminaKAsc();
 
-    // Ordenação decrescente das vitaminas
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina A decrescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina A decrescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaA DESC")
     List<AlimentoModel> findAllOrderByVitaminaADesc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina B decrescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina B decrescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaB DESC")
     List<AlimentoModel> findAllOrderByVitaminaBDesc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina C decrescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina C decrescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaC DESC")
     List<AlimentoModel> findAllOrderByVitaminaCDesc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina D decrescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina D decrescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaD DESC")
     List<AlimentoModel> findAllOrderByVitaminaDDesc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina E decrescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina E decrescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaE DESC")
     List<AlimentoModel> findAllOrderByVitaminaEDesc();
+
+    /**
+     * Busca todos os alimentos ordenados por quantidade de vitamina K decrescente.
+     *
+     * @return Lista de alimentos ordenados por vitamina K decrescente.
+     */
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitaminaK DESC")
     List<AlimentoModel> findAllOrderByVitaminaKDesc();
 
-    // Ordenação por quantidade de proteínas (descrescente)
-    @Query("SELECT a FROM AlimentoModel a ORDER BY a.proteinas DESC")
-    List<AlimentoModel> findAllOrderByProteinasDesc();
 
-    // Ordenação por quantidade de proteínas (crescente)
-    @Query("SELECT a FROM AlimentoModel a ORDER BY a.proteinas ASC")
+    @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitamina ASC")
     List<AlimentoModel> findAllOrderByProteinasAsc();
 
-    // Teste
-    @Query("SELECT a FROM AlimentoModel a WHERE " +
-            "(a.nome LIKE %:nome% OR :nome IS NULL) AND " +
-            "(a.tipo = :tipoAlimento OR :tipoAlimento IS NULL) AND " +
-            "(a.grama BETWEEN :gramaMin * 0.9 AND :gramaMax * 1.1 OR :gramaMin IS NULL OR :gramaMax IS NULL) AND " +
-            "(a.valorEnergetico BETWEEN :valorEnergeticoMin * 0.9 AND :valorEnergeticoMax * 1.1 OR :valorEnergeticoMin IS NULL OR :valorEnergeticoMax IS NULL) AND " +
-            "(a.carboidratos BETWEEN :carboidratosMin * 0.9 AND :carboidratosMax * 1.1 OR :carboidratosMin IS NULL OR :carboidratosMax IS NULL) AND " +
-            "(a.acucaresTotais BETWEEN :acucaresTotaisMin * 0.9 AND :acucaresTotaisMax * 1.1 OR :acucaresTotaisMin IS NULL OR :acucaresTotaisMax IS NULL) AND " +
-            "(a.acucaresAdicionais BETWEEN :acucaresAdicionaisMin * 0.9 AND :acucaresAdicionaisMax * 1.1 OR :acucaresAdicionaisMin IS NULL OR :acucaresAdicionaisMax IS NULL) AND " +
-            "(a.proteinas BETWEEN :proteinasMin * 0.9 AND :proteinasMax * 1.1 OR :proteinasMin IS NULL OR :proteinasMax IS NULL) AND " +
-            "(a.gorduraTotais BETWEEN :gorduraTotaisMin * 0.9 AND :gorduraTotaisMax * 1.1 OR :gorduraTotaisMin IS NULL OR :gorduraTotaisMax IS NULL) AND " +
-            "(a.gorduraTrans BETWEEN :gorduraTransMin * 0.9 AND :gorduraTransMax * 1.1 OR :gorduraTransMin IS NULL OR :gorduraTransMax IS NULL) AND " +
-            "(a.gorduraSaturada BETWEEN :gorduraSaturadaMin * 0.9 AND :gorduraSaturadaMax * 1.1 OR :gorduraSaturadaMin IS NULL OR :gorduraSaturadaMax IS NULL) AND " +
-            "(a.fibra BETWEEN :fibraMin * 0.9 AND :fibraMax * 1.1 OR :fibraMin IS NULL OR :fibraMax IS NULL) AND " +
-            "(a.sodio BETWEEN :sodioMin * 0.9 AND :sodioMax * 1.1 OR :sodioMin IS NULL OR :sodioMax IS NULL) AND " +
-            "(a.vitaminaA BETWEEN :vitaminaAMin * 0.9 AND :vitaminaAMax * 1.1 OR :vitaminaAMin IS NULL OR :vitaminaAMax IS NULL) AND " +
-            "(a.vitaminaB BETWEEN :vitaminaBMin * 0.9 AND :vitaminaBMax * 1.1 OR :vitaminaBMin IS NULL OR :vitaminaBMax IS NULL) AND " +
-            "(a.vitaminaC BETWEEN :vitaminaCMin * 0.9 AND :vitaminaCMax * 1.1 OR :vitaminaCMin IS NULL OR :vitaminaCMax IS NULL) AND " +
-            "(a.vitaminaD BETWEEN :vitaminaDMin * 0.9 AND :vitaminaDMax * 1.1 OR :vitaminaDMin IS NULL OR :vitaminaDMax IS NULL) AND " +
-            "(a.vitaminaE BETWEEN :vitaminaEMin * 0.9 AND :vitaminaEMax * 1.1 OR :vitaminaEMin IS NULL OR :vitaminaEMax IS NULL) AND " +
-            "(a.vitaminaK BETWEEN :vitaminaKMin * 0.9 AND :vitaminaKMax * 1.1 OR :vitaminaKMin IS NULL OR :vitaminaKMax IS NULL)")
-    List<AlimentoModel> findByAllFieldsWithVariation(
-            @Param("nome") String nome,
-            @Param("tipoAlimento") TipoAlimento tipoAlimento,
-            @Param("gramaMin") Integer gramaMin,
-            @Param("gramaMax") Integer gramaMax,
-            @Param("valorEnergeticoMin") Integer valorEnergeticoMin,
-            @Param("valorEnergeticoMax") Integer valorEnergeticoMax,
-            @Param("carboidratosMin") Integer carboidratosMin,
-            @Param("carboidratosMax") Integer carboidratosMax,
-            @Param("acucaresTotaisMin") Integer acucaresTotaisMin,
-            @Param("acucaresTotaisMax") Integer acucaresTotaisMax,
-            @Param("acucaresAdicionaisMin") Integer acucaresAdicionaisMin,
-            @Param("acucaresAdicionaisMax") Integer acucaresAdicionaisMax,
-            @Param("proteinasMin") Integer proteinasMin,
-            @Param("proteinasMax") Integer proteinasMax,
-            @Param("gorduraTotaisMin") Integer gorduraTotaisMin,
-            @Param("gorduraTotaisMax") Integer gorduraTotaisMax,
-            @Param("gorduraTransMin") Integer gorduraTransMin,
-            @Param("gorduraTransMax") Integer gorduraTransMax,
-            @Param("gorduraSaturadaMin") Integer gorduraSaturadaMin,
-            @Param("gorduraSaturadaMax") Integer gorduraSaturadaMax,
-            @Param("fibraMin") Integer fibraMin,
-            @Param("fibraMax") Integer fibraMax,
-            @Param("sodioMin") Integer sodioMin,
-            @Param("sodioMax") Integer sodioMax,
-            @Param("vitaminaAMin") Integer vitaminaAMin,
-            @Param("vitaminaAMax") Integer vitaminaAMax,
-            @Param("vitaminaBMin") Integer vitaminaBMin,
-            @Param("vitaminaBMax") Integer vitaminaBMax,
-            @Param("vitaminaCMin") Integer vitaminaCMin,
-            @Param("vitaminaCMax") Integer vitaminaCMax,
-            @Param("vitaminaDMin") Integer vitaminaDMin,
-            @Param("vitaminaDMax") Integer vitaminaDMax,
-            @Param("vitaminaEMin") Integer vitaminaEMin,
-            @Param("vitaminaEMax") Integer vitaminaEMax,
-            @Param("vitaminaKMin") Integer vitaminaKMin,
-            @Param("vitaminaKMax") Integer vitaminaKMax);
-}
+    @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitamina DESC")
+    List<AlimentoModel> findAllOrderByProteinasDesc();
 
+    List<AlimentoModel> findByAllFieldsWithVariation(String nome, TipoAlimento tipoAlimento, Integer gramaMin, Integer gramaMax, Integer valorEnergeticoMin, Integer valorEnergeticoMax, Integer carboidratosMin, Integer carboidratosMax, Integer acucaresTotaisMin, Integer acucaresTotaisMax, Integer acucaresAdicionaisMin, Integer acucaresAdicionaisMax, Integer proteinasMin, Integer proteinasMax, Integer gorduraTotaisMin, Integer gorduraTotaisMax, Integer gorduraTransMin, Integer gorduraTransMax, Integer gorduraSaturadaMin, Integer gorduraSaturadaMax, Integer fibraMin, Integer fibraMax, Integer sodioMin, Integer sodioMax, Integer vitaminaAMin, Integer vitaminaAMax, Integer vitaminaBMin, Integer vitaminaBMax, Integer vitaminaCMin, Integer vitaminaCMax, Integer vitaminaDMin, Integer vitaminaDMax, Integer vitaminaEMin, Integer vitaminaEMax, Integer vitaminaKMin, Integer vitaminaKMax);
+}
