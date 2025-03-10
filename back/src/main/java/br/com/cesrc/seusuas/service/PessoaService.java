@@ -72,4 +72,13 @@ public class PessoaService {
         pessoaExistente.setDataNascimento(pessoaRequest.getDataNascimento());
         pessoaRepository.save(pessoaExistente);
     }
+    /**
+     * Logar pessoa.
+     *
+     * @param email email da pessoa.
+     * @param senha senha da pessoa
+     */
+    public List<PessoaModel> logarPessoa(String email, String senha) {
+        return pessoaRepository.findByEmailAndSenha(email, senha);
+    }
 }
