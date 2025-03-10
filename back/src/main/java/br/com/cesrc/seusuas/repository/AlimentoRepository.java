@@ -185,11 +185,70 @@ public interface AlimentoRepository extends JpaRepository<AlimentoModel, Long> {
     List<AlimentoModel> findAllOrderByVitaminaKDesc();
 
 
-    @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitamina ASC")
+    @Query("SELECT a FROM AlimentoModel a ORDER BY a.proteinas ASC")
     List<AlimentoModel> findAllOrderByProteinasAsc();
 
-    @Query("SELECT a FROM AlimentoModel a ORDER BY a.vitamina DESC")
+    @Query("SELECT a FROM AlimentoModel a ORDER BY a.proteinas DESC")
     List<AlimentoModel> findAllOrderByProteinasDesc();
 
-    List<AlimentoModel> findByAllFieldsWithVariation(String nome, TipoAlimento tipoAlimento, Integer gramaMin, Integer gramaMax, Integer valorEnergeticoMin, Integer valorEnergeticoMax, Integer carboidratosMin, Integer carboidratosMax, Integer acucaresTotaisMin, Integer acucaresTotaisMax, Integer acucaresAdicionaisMin, Integer acucaresAdicionaisMax, Integer proteinasMin, Integer proteinasMax, Integer gorduraTotaisMin, Integer gorduraTotaisMax, Integer gorduraTransMin, Integer gorduraTransMax, Integer gorduraSaturadaMin, Integer gorduraSaturadaMax, Integer fibraMin, Integer fibraMax, Integer sodioMin, Integer sodioMax, Integer vitaminaAMin, Integer vitaminaAMax, Integer vitaminaBMin, Integer vitaminaBMax, Integer vitaminaCMin, Integer vitaminaCMax, Integer vitaminaDMin, Integer vitaminaDMax, Integer vitaminaEMin, Integer vitaminaEMax, Integer vitaminaKMin, Integer vitaminaKMax);
+    @Query("""
+    SELECT a FROM AlimentoModel a 
+    WHERE (:nome IS NULL OR LOWER(a.nome) LIKE LOWER(CONCAT('%', :nome, '%')))
+    AND (:tipoAlimento IS NULL OR a.tipoAlimento = :tipoAlimento)
+    AND (:gramaMin IS NULL OR a.grama >= :gramaMin)
+    AND (:gramaMax IS NULL OR a.grama <= :gramaMax)
+    AND (:valorEnergeticoMin IS NULL OR a.valorEnergetico >= :valorEnergeticoMin)
+    AND (:valorEnergeticoMax IS NULL OR a.valorEnergetico <= :valorEnergeticoMax)
+    AND (:carboidratosMin IS NULL OR a.carboidratos >= :carboidratosMin)
+    AND (:carboidratosMax IS NULL OR a.carboidratos <= :carboidratosMax)
+    AND (:acucaresTotaisMin IS NULL OR a.acucaresTotais >= :acucaresTotaisMin)
+    AND (:acucaresTotaisMax IS NULL OR a.acucaresTotais <= :acucaresTotaisMax)
+    AND (:acucaresAdicionaisMin IS NULL OR a.acucaresAdicionais >= :acucaresAdicionaisMin)
+    AND (:acucaresAdicionaisMax IS NULL OR a.acucaresAdicionais <= :acucaresAdicionaisMax)
+    AND (:proteinasMin IS NULL OR a.proteinas >= :proteinasMin)
+    AND (:proteinasMax IS NULL OR a.proteinas <= :proteinasMax)
+    AND (:gorduraTotaisMin IS NULL OR a.gorduraTotais >= :gorduraTotaisMin)
+    AND (:gorduraTotaisMax IS NULL OR a.gorduraTotais <= :gorduraTotaisMax)
+    AND (:gorduraTransMin IS NULL OR a.gorduraTrans >= :gorduraTransMin)
+    AND (:gorduraTransMax IS NULL OR a.gorduraTrans <= :gorduraTransMax)
+    AND (:gorduraSaturadaMin IS NULL OR a.gorduraSaturada >= :gorduraSaturadaMin)
+    AND (:gorduraSaturadaMax IS NULL OR a.gorduraSaturada <= :gorduraSaturadaMax)
+    AND (:fibraMin IS NULL OR a.fibra >= :fibraMin)
+    AND (:fibraMax IS NULL OR a.fibra <= :fibraMax)
+    AND (:sodioMin IS NULL OR a.sodio >= :sodioMin)
+    AND (:sodioMax IS NULL OR a.sodio <= :sodioMax)
+    AND (:vitaminaAMin IS NULL OR a.vitaminaA >= :vitaminaAMin)
+    AND (:vitaminaAMax IS NULL OR a.vitaminaA <= :vitaminaAMax)
+    AND (:vitaminaBMin IS NULL OR a.vitaminaB >= :vitaminaBMin)
+    AND (:vitaminaBMax IS NULL OR a.vitaminaB <= :vitaminaBMax)
+    AND (:vitaminaCMin IS NULL OR a.vitaminaC >= :vitaminaCMin)
+    AND (:vitaminaCMax IS NULL OR a.vitaminaC <= :vitaminaCMax)
+    AND (:vitaminaDMin IS NULL OR a.vitaminaD >= :vitaminaDMin)
+    AND (:vitaminaDMax IS NULL OR a.vitaminaD <= :vitaminaDMax)
+    AND (:vitaminaEMin IS NULL OR a.vitaminaE >= :vitaminaEMin)
+    AND (:vitaminaEMax IS NULL OR a.vitaminaE <= :vitaminaEMax)
+    AND (:vitaminaKMin IS NULL OR a.vitaminaK >= :vitaminaKMin)
+    AND (:vitaminaKMax IS NULL OR a.vitaminaK <= :vitaminaKMax)
+""")
+    List<AlimentoModel> findByAllFieldsWithVariation(
+            @Param("nome") String nome,
+            @Param("tipoAlimento") TipoAlimento tipoAlimento,
+            @Param("gramaMin") Integer gramaMin, @Param("gramaMax") Integer gramaMax,
+            @Param("valorEnergeticoMin") Integer valorEnergeticoMin, @Param("valorEnergeticoMax") Integer valorEnergeticoMax,
+            @Param("carboidratosMin") Integer carboidratosMin, @Param("carboidratosMax") Integer carboidratosMax,
+            @Param("acucaresTotaisMin") Integer acucaresTotaisMin, @Param("acucaresTotaisMax") Integer acucaresTotaisMax,
+            @Param("acucaresAdicionaisMin") Integer acucaresAdicionaisMin, @Param("acucaresAdicionaisMax") Integer acucaresAdicionaisMax,
+            @Param("proteinasMin") Integer proteinasMin, @Param("proteinasMax") Integer proteinasMax,
+            @Param("gorduraTotaisMin") Integer gorduraTotaisMin, @Param("gorduraTotaisMax") Integer gorduraTotaisMax,
+            @Param("gorduraTransMin") Integer gorduraTransMin, @Param("gorduraTransMax") Integer gorduraTransMax,
+            @Param("gorduraSaturadaMin") Integer gorduraSaturadaMin, @Param("gorduraSaturadaMax") Integer gorduraSaturadaMax,
+            @Param("fibraMin") Integer fibraMin, @Param("fibraMax") Integer fibraMax,
+            @Param("sodioMin") Integer sodioMin, @Param("sodioMax") Integer sodioMax,
+            @Param("vitaminaAMin") Integer vitaminaAMin, @Param("vitaminaAMax") Integer vitaminaAMax,
+            @Param("vitaminaBMin") Integer vitaminaBMin, @Param("vitaminaBMax") Integer vitaminaBMax,
+            @Param("vitaminaCMin") Integer vitaminaCMin, @Param("vitaminaCMax") Integer vitaminaCMax,
+            @Param("vitaminaDMin") Integer vitaminaDMin, @Param("vitaminaDMax") Integer vitaminaDMax,
+            @Param("vitaminaEMin") Integer vitaminaEMin, @Param("vitaminaEMax") Integer vitaminaEMax,
+            @Param("vitaminaKMin") Integer vitaminaKMin, @Param("vitaminaKMax") Integer vitaminaKMax
+    );
 }

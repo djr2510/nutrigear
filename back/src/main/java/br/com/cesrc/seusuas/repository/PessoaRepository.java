@@ -1,8 +1,13 @@
 package br.com.cesrc.seusuas.repository;
 
+import br.com.cesrc.seusuas.model.artigo.ArtigoModel;
 import br.com.cesrc.seusuas.model.pessoa.PessoaModel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Repositório JPA para a entidade PessoaModel.
@@ -11,6 +16,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PessoaRepository extends JpaRepository<PessoaModel, Long> {
 
-    // Métodos padrão do JpaRepository já fornecem as operações básicas de CRUD.
-    // Métodos personalizados podem ser adicionados aqui se necessário.
+    @Query("SELECT p FROM PessoaModel p WHERE p.email = :email AND p.senha = :senha")
+    List<PessoaModel> findByEmailAndSenha(@Param("email") String email, @Param("senha") String senha);
 }
