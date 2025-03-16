@@ -192,7 +192,7 @@ public interface AlimentoRepository extends JpaRepository<AlimentoModel, Long> {
     List<AlimentoModel> findAllOrderByProteinasDesc();
 
     @Query("""
-    SELECT a FROM AlimentoModel a 
+    SELECT a FROM AlimentoModel a
     WHERE (:nome IS NULL OR LOWER(a.nome) LIKE LOWER(CONCAT('%', :nome, '%')))
     AND (:tipoAlimento IS NULL OR a.tipoAlimento = :tipoAlimento)
     AND (:gramaMin IS NULL OR a.grama >= :gramaMin)
