@@ -232,7 +232,11 @@ public class AlimentoService {
     public List<AlimentoModel> listarAlimentosPorVitaminaCAsc() {
         return alimentoRepository.findAllOrderByVitaminaCAsc();
     }
-
+    /**
+     * Lista todos os alimentos ordenados por todos os filtros.
+     *
+     * @return Lista de alimentos ordenados por filtors selecionados.
+     */
     public List<AlimentoModel> findByAllFieldsWithVariation(
             String nome,
             TipoAlimento tipoAlimento,

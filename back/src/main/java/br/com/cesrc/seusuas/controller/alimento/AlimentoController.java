@@ -201,6 +201,11 @@ public class AlimentoController {
                 .toList();
         return ResponseEntity.ok(responseList);
     }
+    /**
+     * Ordena alimentos pelo filtro desejado.
+     *
+     * @return ResponseEntity contendo a lista de alimentos ordenados e o status HTTP 200 (OK).
+     */
     @GetMapping("/procurar-personalizado")
     public ResponseEntity<List<AlimentoModel>> findByAllFieldsWithVariation(
             @RequestParam(required = false) String nome,
