@@ -1,4 +1,4 @@
 package br.com.cesrc.seusuas.exeptions.pessoa;
 
-public class SenhaInvalida {
+public class NomeNãoEncontrado {
 }
