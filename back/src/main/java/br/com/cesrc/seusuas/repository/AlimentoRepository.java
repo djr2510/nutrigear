@@ -190,7 +190,7 @@ public interface AlimentoRepository extends JpaRepository<AlimentoModel, Long> {
 
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.proteinas DESC")
     List<AlimentoModel> findAllOrderByProteinasDesc();
-
+/**
     @Query("""
     SELECT a FROM AlimentoModel a
     WHERE (:nome IS NULL OR LOWER(a.nome) LIKE LOWER(CONCAT('%', :nome, '%')))
@@ -251,4 +251,5 @@ public interface AlimentoRepository extends JpaRepository<AlimentoModel, Long> {
             @Param("vitaminaEMin") Integer vitaminaEMin, @Param("vitaminaEMax") Integer vitaminaEMax,
             @Param("vitaminaKMin") Integer vitaminaKMin, @Param("vitaminaKMax") Integer vitaminaKMax
     );
+    */
 }
