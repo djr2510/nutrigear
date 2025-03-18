@@ -206,6 +206,7 @@ public class AlimentoController {
      *
      * @return ResponseEntity contendo a lista de alimentos ordenados e o status HTTP 200 (OK).
      */
+    /*
     @GetMapping("/procurar-personalizado")
     public ResponseEntity<List<AlimentoModel>> findByAllFieldsWithVariation(
             @RequestParam(required = false) String nome,
@@ -242,5 +243,5 @@ public class AlimentoController {
         }
 
         return ResponseEntity.ok(alimentos);
-    }
+    }     */
 }

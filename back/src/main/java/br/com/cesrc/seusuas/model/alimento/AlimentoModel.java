@@ -42,103 +42,103 @@ public class AlimentoModel {
      * Quantidade em gramas do alimento.
      */
     @Column(nullable = false, length = 100)
-    private int grama;
+    private Integer grama;
 
     /**
      * Valor energético do alimento.
      */
     @Column(nullable = false, length = 100)
-    private int valorEnergetico;
+    private Integer valorEnergetico;
 
     /**
      * Quantidade de carboidratos no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int carboidratos;
+    private Integer carboidratos;
 
     /**
      * Quantidade de açúcares totais no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int acucaresTotais;
+    private Integer acucaresTotais;
 
     /**
      * Quantidade de açúcares adicionais no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int acucaresAdicionais;
+    private Integer acucaresAdicionais;
 
     /**
      * Quantidade de proteínas no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int proteinas;
+    private Integer proteinas;
 
     /**
      * Quantidade de gorduras totais no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int gorduraTotais;
+    private Integer gorduraTotais;
 
     /**
      * Quantidade de gordura trans no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int gorduraTrans;
+    private Integer gorduraTrans;
 
     /**
      * Quantidade de gordura saturada no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int gorduraSaturada;
+    private Integer gorduraSaturada;
 
     /**
      * Quantidade de fibras no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int fibra;
+    private Integer fibra;
 
     /**
      * Quantidade de sódio no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int sodio;
+    private Integer sodio;
 
     /**
      * Quantidade de vitamina A no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int vitaminaA;
+    private Integer vitaminaA;
 
     /**
      * Quantidade de vitamina B no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int vitaminaB;
+    private Integer vitaminaB;
 
     /**
      * Quantidade de vitamina C no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int vitaminaC;
+    private Integer vitaminaC;
 
     /**
      * Quantidade de vitamina D no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int vitaminaD;
+    private Integer vitaminaD;
 
     /**
      * Quantidade de vitamina E no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int vitaminaE;
+    private Integer vitaminaE;
 
     /**
      * Quantidade de vitamina K no alimento.
      */
     @Column(nullable = false, length = 100)
-    private int vitaminaK;
+    private Integer vitaminaK;
 
     /**
      * Construtor com todos os campos.
@@ -164,7 +164,7 @@ public class AlimentoModel {
      * @param vitaminaE Quantidade de vitamina E.
      * @param vitaminaK Quantidade de vitamina K.
      */
-    public AlimentoModel(Long id, TipoAlimento tipo, String nome, int grama, int valorEnergetico, int carboidratos, int acucaresTotais, int acucaresAdicionais, int proteinas, int gorduraTotais, int gorduraTrans, int gorduraSaturada, int fibra, int sodio, int vitaminaA, int vitaminaB, int vitaminaC, int vitaminaD, int vitaminaE, int vitaminaK) {
+    public AlimentoModel(Long id, TipoAlimento tipo, String nome, Integer grama, Integer valorEnergetico, Integer carboidratos, Integer acucaresTotais, Integer acucaresAdicionais, Integer proteinas, Integer gorduraTotais, Integer gorduraTrans, Integer gorduraSaturada, Integer fibra, Integer sodio, Integer vitaminaA, Integer vitaminaB, Integer vitaminaC, Integer vitaminaD, Integer vitaminaE, Integer vitaminaK) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
