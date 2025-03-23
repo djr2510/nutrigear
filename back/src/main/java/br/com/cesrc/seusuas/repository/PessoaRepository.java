@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Repositório JPA para a entidade PessoaModel.
@@ -17,5 +18,8 @@ import java.util.List;
 public interface PessoaRepository extends JpaRepository<PessoaModel, Long> {
 
     @Query("SELECT p FROM PessoaModel p WHERE p.email = :email AND p.senha = :senha")
-    List<PessoaModel> findByEmailAndSenha(@Param("email") String email, @Param("senha") String senha);
+    Optional<PessoaModel> findByEmailAndSenha(@Param("email") String email, @Param("senha") String senha);
+    @Query("SELECT p FROM PessoaModel p WHERE p.email = :email")
+    PessoaModel findByEmail(String email);
+
 }

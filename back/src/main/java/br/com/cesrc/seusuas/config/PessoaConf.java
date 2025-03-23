@@ -24,5 +24,6 @@ public class PessoaConf implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedMethods("GET", "PUT", "POST", "DELETE")
                 .allowedOriginPatterns("*");
+
     }
 }

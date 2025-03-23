@@ -237,6 +237,7 @@ public class AlimentoService {
      *
      * @return Lista de alimentos ordenados por filtors selecionados.
      */
+    /**
     public List<AlimentoModel> findByAllFieldsWithVariation(
             String nome,
             TipoAlimento tipoAlimento,
@@ -267,4 +268,5 @@ public class AlimentoService {
                 vitaminaDMin, vitaminaDMax, vitaminaEMin, vitaminaEMax, vitaminaKMin, vitaminaKMax
         );
     }
+    */
 }

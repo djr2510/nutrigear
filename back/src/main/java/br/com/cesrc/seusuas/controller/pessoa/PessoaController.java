@@ -87,18 +87,18 @@ public class PessoaController {
     /**
      * Logar no front a pessoa desejada
      *
-     * @param email email da pessoa.
-     * @param senha senha da pessoa
      * @return ResponseEntity contendo a pessoa e o status HTTP 200 (OK).
      */
     @PostMapping("/logar")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<List<PessoaModel>> autenticar(@RequestParam String email, @RequestParam String senha) {
-        List<PessoaModel> pessoas = pessoaService.logarPessoa(email, senha);
-        if (pessoas.isEmpty()) {
-            return ResponseEntity.status(401).body(pessoas);
+    public ResponseEntity<PessoaModel> autenticar(@RequestBody PessoaRequest request) {
+        PessoaModel pessoa = pessoaService.logarPessoa(request.getEmail(), request.getSenha());
+        if (pessoa == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        return ResponseEntity.ok(pessoas);
+        return ResponseEntity.ok(pessoa);
     }
+
+
+
 
 }

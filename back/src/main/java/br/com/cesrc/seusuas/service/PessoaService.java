@@ -78,7 +78,15 @@ public class PessoaService {
      * @param email email da pessoa.
      * @param senha senha da pessoa
      */
-    public List<PessoaModel> logarPessoa(String email, String senha) {
-        return pessoaRepository.findByEmailAndSenha(email, senha);
+    public PessoaModel logarPessoa(String email, String senha) {
+        PessoaModel pessoa = pessoaRepository.findByEmail(email);
+
+        if (pessoa != null && pessoa.getSenha().equals(senha)) {
+            return pessoa;
+        }
+
+        return null;
     }
+
+
 }
