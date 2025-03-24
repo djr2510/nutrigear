@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Esta classe inicia a aplicação Spring Boot.
  */
 @SpringBootApplication
-public class SeusuasApplication {
+public class SeusuasApplication { 
 
 	/**
 	 * Método principal que inicia a aplicação Spring Boot.
