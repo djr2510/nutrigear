@@ -232,6 +232,9 @@ public class AlimentoService {
     public List<AlimentoModel> listarAlimentosPorVitaminaCAsc() {
         return alimentoRepository.findAllOrderByVitaminaCAsc();
     }
+    public AlimentoModel adicionarAlimento(AlimentoModel alimento) {
+        return alimentoRepository.save(alimento);
+    }
     /**
      * Lista todos os alimentos ordenados por todos os filtros.
      *

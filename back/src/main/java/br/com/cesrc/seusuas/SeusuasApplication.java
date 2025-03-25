@@ -1,5 +1,6 @@
 package br.com.cesrc.seusuas;
 
+import br.com.cesrc.seusuas.model.alimento.AlimentoModel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

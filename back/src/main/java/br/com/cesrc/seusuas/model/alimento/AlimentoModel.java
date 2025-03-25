@@ -1,6 +1,7 @@
 package br.com.cesrc.seusuas.model.alimento;
 
 import jakarta.persistence.*;
+import jdk.jshell.Snippet;
 import lombok.*;
 
 /**
@@ -14,6 +15,7 @@ import lombok.*;
 @ToString
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "alimentos")
 public class AlimentoModel {
@@ -143,28 +145,27 @@ public class AlimentoModel {
     /**
      * Construtor com todos os campos.
      *
-     * @param id Identificador único do alimento.
-     * @param tipo Tipo do alimento.
-     * @param nome Nome do alimento.
-     * @param grama Quantidade em gramas.
-     * @param valorEnergetico Valor energético.
-     * @param carboidratos Quantidade de carboidratos.
-     * @param acucaresTotais Quantidade de açúcares totais.
+     * @param tipo               Tipo do alimento.
+     * @param nome               Nome do alimento.
+     * @param grama              Quantidade em gramas.
+     * @param valorEnergetico    Valor energético.
+     * @param carboidratos       Quantidade de carboidratos.
+     * @param acucaresTotais     Quantidade de açúcares totais.
      * @param acucaresAdicionais Quantidade de açúcares adicionais.
-     * @param proteinas Quantidade de proteínas.
-     * @param gorduraTotais Quantidade de gorduras totais.
-     * @param gorduraTrans Quantidade de gordura trans.
-     * @param gorduraSaturada Quantidade de gordura saturada.
-     * @param fibra Quantidade de fibras.
-     * @param sodio Quantidade de sódio.
-     * @param vitaminaA Quantidade de vitamina A.
-     * @param vitaminaB Quantidade de vitamina B.
-     * @param vitaminaC Quantidade de vitamina C.
-     * @param vitaminaD Quantidade de vitamina D.
-     * @param vitaminaE Quantidade de vitamina E.
-     * @param vitaminaK Quantidade de vitamina K.
+     * @param proteinas          Quantidade de proteínas.
+     * @param gorduraTotais      Quantidade de gorduras totais.
+     * @param gorduraTrans       Quantidade de gordura trans.
+     * @param gorduraSaturada    Quantidade de gordura saturada.
+     * @param fibra              Quantidade de fibras.
+     * @param sodio              Quantidade de sódio.
+     * @param vitaminaA          Quantidade de vitamina A.
+     * @param vitaminaB          Quantidade de vitamina B.
+     * @param vitaminaC          Quantidade de vitamina C.
+     * @param vitaminaD          Quantidade de vitamina D.
+     * @param vitaminaE          Quantidade de vitamina E.
+     * @param i
      */
-    public AlimentoModel(Long id, TipoAlimento tipo, String nome, Integer grama, Integer valorEnergetico, Integer carboidratos, Integer acucaresTotais, Integer acucaresAdicionais, Integer proteinas, Integer gorduraTotais, Integer gorduraTrans, Integer gorduraSaturada, Integer fibra, Integer sodio, Integer vitaminaA, Integer vitaminaB, Integer vitaminaC, Integer vitaminaD, Integer vitaminaE, Integer vitaminaK) {
+    public AlimentoModel(TipoAlimento tipo, String nome, Integer grama, Integer valorEnergetico, Integer carboidratos, Integer acucaresTotais, Integer acucaresAdicionais, Integer proteinas, Integer gorduraTotais, Integer gorduraTrans, Integer gorduraSaturada, Integer fibra, Integer sodio, Integer vitaminaA, Integer vitaminaB, Integer vitaminaC, Integer vitaminaD, Integer vitaminaE, int i) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
@@ -185,5 +186,5 @@ public class AlimentoModel {
         this.vitaminaD = vitaminaD;
         this.vitaminaE = vitaminaE;
         this.vitaminaK = vitaminaK;
-    }
+    };
 }

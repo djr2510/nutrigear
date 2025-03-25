@@ -4,11 +4,10 @@ import br.com.cesrc.seusuas.controller.alimento.response.AlimentoResponse;
 import br.com.cesrc.seusuas.model.alimento.AlimentoModel;
 import br.com.cesrc.seusuas.model.alimento.TipoAlimento;
 import br.com.cesrc.seusuas.repository.AlimentoRepository;
+import br.com.cesrc.seusuas.service.AlimentoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,8 @@ import java.util.List;
 @RequestMapping(path = "/alimentos")
 @RestController
 public class AlimentoController {
-
+    @Autowired
+    private AlimentoService alimentoService;
     private final AlimentoRepository alimentoRepository;
 
     /**
@@ -200,6 +200,10 @@ public class AlimentoController {
                 .map(AlimentoResponse::of)
                 .toList();
         return ResponseEntity.ok(responseList);
+    }
+    @PostMapping("/adicionar")
+    public AlimentoModel adicionarAlimento(@RequestBody AlimentoModel alimento) {
+        return alimentoService.adicionarAlimento(alimento);
     }
     /**
      * Ordena alimentos pelo filtro desejado.

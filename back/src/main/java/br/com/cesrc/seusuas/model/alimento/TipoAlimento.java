@@ -30,5 +30,30 @@ public enum TipoAlimento {
     /**
      * Representa líquidos.
      */
-    LIQUIDO
+    LIQUIDO,
+
+    /**
+     * Representa cereais e grãos.
+     */
+    CEREAL,
+
+    /**
+     * Representa laticínios.
+     */
+    LATICINIO,
+
+    /**
+     * Representa oleaginosas e sementes.
+     */
+    OLEAGINOSA,
+
+    /**
+     * Representa leguminosas como feijão, lentilha e grão-de-bico.
+     */
+    LEGUMINOSA,
+
+    /**
+     * Representa temperos e ervas.
+     */
+    TEMPERO
 }

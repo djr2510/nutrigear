@@ -190,6 +190,8 @@ public interface AlimentoRepository extends JpaRepository<AlimentoModel, Long> {
 
     @Query("SELECT a FROM AlimentoModel a ORDER BY a.proteinas DESC")
     List<AlimentoModel> findAllOrderByProteinasDesc();
+
+
 /**
     @Query("""
     SELECT a FROM AlimentoModel a
